@@ -72,8 +72,12 @@ def sieve_smpf(n):
                 if phi[j] > i:
                     phi[j] = i+1
         i += 1
-    return sum(phi)
+    return sum(phi)-1
 
+#print(sieve_smpf(10000000))
+#10**7 : 3203714961609
+
+s = [i for i in range(10**12)]
 #Problem 70
 
 #Problem 516
@@ -335,14 +339,58 @@ def findFactor(n):
 #     else: c = 0
 # print(n)
 
-s = 0
-try:
-    for i in range(2,10000):
-        if int(sigma2(i)**0.5)**2 == sigma2(i):
-            s += i
-except OverflowError:
-    print(i)
-print(s)
-#10000: 36445
+#Problem 211
+# s = 0
+# try:
+#     for i in range(2,100000):
+#         if isPerfectSquare(sigma2(i)):
+#             s += i
+# #            print(i,getDivisor(i),sigma2(i))
+# except OverflowError:
+#     print(i)
+# print(s)
+#20000: 36445 + 18330
+
+#Probelm 112
+# def bouncy(n):
+#     inc, dec ,s = False, False, str(n)
+#     for i in range(len(s)-1):
+#         if s[i] < s[i+1]: inc = True
+#         elif s[i] > s[i+1]: dec = True
+#         if  inc and dec: return True
+#     return False
+# 
+# n = 21780
+# p = 0.9
+# b = n*p
+# while p != 0.99:
+#     n += 1
+#     if bouncy(n): b += 1
+#     p = b/n 
+# print(n)  
+# 1587000 
+
+#Problem 119
+# a = []
+# 
+# for b in range(2,100):
+#     for e in range(2,10):
+#         p = b**e
+#         if sumDigits(p) == b: 
+#             a.append(p)
+#                 
+# a.sort()
+# print(a[29])
+# 248155780267521
+
+#Problem 120
+# def SquareReminder(a):
+#     s = [2*n*a%(a*a) for n in range(1,a)]
+#     return max(s)
+# 
+# print(sum([SquareReminder(i) for i in range(3,1001)]))
+# 333082500
+
+
 end = time.time()
 print(end-start)

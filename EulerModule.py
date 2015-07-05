@@ -117,3 +117,7 @@ def Pythagores(N):
                 #print(m*m-n*n,2*m*n,m*m+n*n)
                 _count += N//(m*m+n*n)
     return _count 
+
+def sumDigits(n):
+    return sum(map(int,str(n)))
+
