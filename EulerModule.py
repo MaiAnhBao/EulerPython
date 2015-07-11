@@ -121,3 +121,10 @@ def Pythagores(N):
 def sumDigits(n):
     return sum(map(int,str(n)))
 
+def smpf(n):
+    if n == 1: return 1
+    if checkPrime(n): return n
+    if n%2 == 0: return 2
+    for i in range(3,n//2+1,2):
+        if n%i == 0:
+            return i

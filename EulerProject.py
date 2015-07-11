@@ -74,10 +74,28 @@ def sieve_smpf(n):
         i += 1
     return sum(phi)-1
 
-#print(sieve_smpf(10000000))
+#print(sieve_smpf(1000))
+#print(sieve_smpf(1000) - sum(primes_sieve(1000)) + sum(primes_sieve(34)))
 #10**7 : 3203714961609
 
-s = [i for i in range(10**12)]
+
+# s = 5*10**11 * (5*10**11 +1)
+# p = 1000
+# for i in range(1,len(l)):
+#     c = 1
+#     s += l[i]
+#     for j in range(i+1,10**12//l[i]+1):
+#         t = j*l[i]
+#         k = 0
+#         while t%l[k] != 0:
+#             k += 1
+#         if k == i: 
+#             s += t
+#             c += 1
+#     p += c*l[i]
+# #            print(t)
+# print(s , p, sum(l))
+# print( (s- sum(l)+1)%10**9 + (p-sum(l))%10**9)
 #Problem 70
 
 #Problem 516
@@ -391,6 +409,187 @@ def findFactor(n):
 # print(sum([SquareReminder(i) for i in range(3,1001)]))
 # 333082500
 
+#Problem 146
+# _sum = 0
+# for num in range(10,10**6,10):
+#     if num%3==0 or num%7==0: continue
+#     print(num)
+#     t = num*num
+#     if checkPrime(t+1):
+#         if checkPrime(t+3):
+#             if checkPrime(t+7):
+#                 if checkPrime(t+9):
+#                     if checkPrime(t+13):
+#                         if checkPrime(t+27):
+#                             _sum += num
+# print(_sum)
+s = 0
+# for num in range(100,10**12,2100):
+#     if isPerfectSquare(num):
+#         print(num)
+#         #if num % 7 == 0: continue
+#         if checkPrime(num + 19) or checkPrime(num+21): continue
+#         if checkPrime(num+1):
+#             if checkPrime(num+3):
+#                 if checkPrime(num+7):
+#                     if checkPrime(num+9):
+#                         if checkPrime(num+13):
+#                             if checkPrime(num+27):
+#                                 print(num)
+#                                 s += num
+# for num in range(1600,10**12,2100):
+#     if isPerfectSquare(num):
+#         print(num)
+#         #if num % 7 == 0: continue
+#         if checkPrime(num + 19) or checkPrime(num+21): continue
+#         if checkPrime(num+1):
+#             if checkPrime(num+3):
+#                 if checkPrime(num+7):
+#                     if checkPrime(num+9):
+#                         if checkPrime(num+13):
+#                             if checkPrime(num+27):
+#                                 print(num)
+#                                 s += num
 
+
+#Problem 145
+# def revNum(n):
+#     return int(str(n)[::-1])
+# 
+# s = {'1','3','5','7','9'}
+# r = {'2','4','6','8','0'}
+# def checkRev(n):
+#     for i in str(n):
+#         if not i in s: return False
+#     return True
+# 
+# print(20+100+600+18000+50000+20*30*30*30)
+#10000001 : 720 + 68000
+
+#Problem 13
+# f = open('Euler13.txt','r')
+# 
+# mylines = [line.rstrip('\n') for line in f]
+# 
+# s = 0
+# for l in mylines:
+#     s += int(l[:11]) 
+# print(str(s)[:10])
+
+#problem 50
+# p = primes_sieve(1000000)
+# 
+# t = []
+# for i in range(len(p)):
+#     s = p[i]
+#     c = 1
+#     pr, l = s, 1
+#     for j in range(i+1,len(p)):
+#         s += p[j]
+#         c+=1
+#         #print(s)
+#         if s > 1000000: break
+#         if checkPrime(s): 
+#              pr, l = s, c
+#     t.append((pr,l))
+#print(t)
+
+#print(max(t, key = lambda item:item[1]))
+
+#Problem 43
+# s = []
+# for i in range(500,600):
+#     if i % 11 == 0:
+#         s.append(i)
+# p = []
+# for i in s:
+#     t = i%100
+#     for j in range(0,10):
+#         if str(j) in set(str(i)): continue
+#         if (t*10 + j) % 13 == 0:
+#             p.append(i*10+j)
+# q = []
+# for i in p:
+#     t = i % 100
+#     for j in range(0,10):
+#         if str(j) in set(str(i)): continue
+#         if (t*10+j) % 17 == 0:
+#             q.append(i*10+j)
+# a =[]
+# for i in q:
+#     t = int(str(i)[:2])
+#     for j in range(0,10):
+#         if str(j) in set(str(i)): continue
+#         if (j*100 + t) % 7 == 0:
+#             a.append(j*10**5 + i)
+# #print(a)
+# b = []
+# for i in a:
+#     for j in range(0,10):
+#         if str(j) in set(str(i)): continue
+#         b.append(j*10**6+i)
+# #print(b)
+# c = []
+# for i in b:
+#     if len(str(i)) == 6: 
+#         t = int(str(i)[:1])
+#         for j in range(0,10):
+#             if str(j) in set(str(i) + '0'): continue
+#             if (j*100+t)%3==0:
+#                 c.append(j*10**7+i)
+#     else:
+#         t = int(str(i)[:2])
+#         for j in range(0,10):
+#             if str(j) in set(str(i)): continue
+#             if (j*100+t)%3==0:
+#                 c.append(j*10**7+i)
+# print(c)
+# d = []
+# for i in c:
+#     if len(str(i)) == 7: 
+#         t = int(str(i)[:1])
+#         for j in range(0,10):
+#             if str(j) in set(str(i) + '0'): continue
+#             if (j*100+t)%2==0:
+#                 d.append(j*10**8+i)
+#     else:
+#         t = int(str(i)[:2])
+#         for j in range(0,10):
+#             if str(j) in set(str(i)): continue
+#             if (j*100+t)%2==0:
+#                 d.append(j*10**8+i)
+# print(d)
+# e = []
+# for i in d:
+#     for j in range(0,10):
+#         if str(j) in set(str(i)): continue
+#         e.append(j*10**9+i)
+# print(e,'\n',sum(e))
+
+#Problem 347
+def LI2P(a,b,N):
+    s = 0
+    t = int(math.log(N)/math.log(a))
+    v = int(math.log(N)/math.log(b))
+    for i in range(1,t+1):
+        p = a**i
+        for j in range(1,v+1):
+            p *= b
+            if p <= N:
+                if s < p:
+                    s = p
+            else: break
+    return s
+
+# l =primes_sieve(100000)
+# s = set()
+# for i in l:
+#     for j in l:
+#         if j >i and j < 100000//i:
+#             s.add(LI2P(i, j, 100000))
+#              
+# print(sum(s))
+
+print(sum([i*i for i in range(0,10)])*9**15 %10**9)
 end = time.time()
 print(end-start)
