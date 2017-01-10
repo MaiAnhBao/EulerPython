@@ -34,7 +34,7 @@ public:
 	static std::vector<int> factorize(const int) throw(NegativeException&);
 	static std::vector<int> sieveEratosthenes(const int) throw(NegativeException&);
 
-	static int getFibo(const int);
+	static long getFibo(const int) throw(NegativeException&);
 
 	static void printResult(std::vector<int>);
 

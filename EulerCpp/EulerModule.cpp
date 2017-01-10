@@ -151,13 +151,13 @@ std::vector<int> EulerModule::sieveEratosthenes(const int num)
 	int upper = static_cast<int>(sqrt(num));
 	for (int i = 2; i < upper; ++i) {
 		if (vecInitial.at(i)) {
-			std::cout << i;
+//			std::cout << i;
 			for (int j = i * i; j < num; j += i) {
 				vecInitial.at(j) = 0;
 			}
 		}
 	}
-	for (int i = 0; i < num; ++i) {
+	for (int i = 2; i < num; ++i) {
 		if (vecInitial.at(i)) {
 			retVal.push_back(i);
 		}
@@ -165,12 +165,21 @@ std::vector<int> EulerModule::sieveEratosthenes(const int num)
 	return retVal;
 }
 
-int EulerModule::getFibo(const int num) {
+/**
+ * @brief get the n-th Fibonacci number
+ * @param order number n
+ * @return the n-th Fibonacci number
+ */
+long EulerModule::getFibo(const int num) throw (NegativeException&) {
+	if (num < 0) {
+		throw NegativeException("Negative integer!\n");
+	}
 	int retVal = 0;
 	int a = 1, b = 1, i = 0;
-	while (i < num) {
-		b = a+b;
-		a = b-a;
+	while (i < num-1) {
+		b = a + b;
+		a = b - a;
+		i ++;
 	}
 	retVal = b;
 	return retVal;
