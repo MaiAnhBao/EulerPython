@@ -9,9 +9,12 @@
 #define EULERMODULECPP_EULERMODULE_H_
 
 #include <math.h>
+#include <iterator>
+#include <algorithm>
 #include <iostream>
 #include <vector>
 #include <exception>
+#include <string>
 
 namespace EulerProject {
 
@@ -35,6 +38,8 @@ public:
 	static std::vector<int> sieveEratosthenes(const int) throw(NegativeException&);
 
 	static long getFibo(const int) throw(NegativeException&);
+	static int sumDigits(const int) throw(NegativeException&);
+	static bool checkPanlidrome(const int) throw(NegativeException&);
 
 	static void printResult(std::vector<int>);
 

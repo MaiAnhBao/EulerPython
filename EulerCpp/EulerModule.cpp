@@ -175,12 +175,47 @@ long EulerModule::getFibo(const int num) throw (NegativeException&) {
 		throw NegativeException("Negative integer!\n");
 	}
 	int retVal = 0;
-	int a = 1, b = 1, i = 0;
-	while (i < num-1) {
+	int a = 0, b = 1, i = 0;
+	while (i < num) {
 		b = a + b;
 		a = b - a;
-		i ++;
+		i++;
 	}
 	retVal = b;
 	return retVal;
+}
+
+/**
+ * @brief get the sum of digits of the given number
+ * @param the number
+ * @return the sum of digits
+ */
+int EulerModule::sumDigits(const int num) throw (NegativeException&) {
+	if (num < 0) {
+		throw NegativeException("Negative integer!\n");
+	}
+	int retVal = 0;
+	int iNum = num;
+	while (iNum > 0) {
+		retVal += iNum % 10;
+		iNum = iNum / 10;
+	}
+	return retVal;
+}
+
+/**
+ * @brief check a number is panlidrome or not
+ * @param a number
+ * @return true if the number is panlidrome
+ * @return false if not
+ */
+bool EulerModule::checkPanlidrome(const int num) throw (NegativeException&) {
+	if (num < 0) {
+		throw NegativeException("Negative integer!\n");
+	}
+	bool retVal = true;
+	std::string s = std::to_string(num);
+	std::string s_copy = s;
+	std::reverse(s.begin(), s.end());
+	return s == s_copy;
 }
