@@ -164,3 +164,14 @@ std::vector<int> EulerModule::sieveEratosthenes(const int num)
 	}
 	return retVal;
 }
+
+int EulerModule::getFibo(const int num) {
+	int retVal = 0;
+	int a = 1, b = 1, i = 0;
+	while (i < num) {
+		b = a+b;
+		a = b-a;
+	}
+	retVal = b;
+	return retVal;
+}
